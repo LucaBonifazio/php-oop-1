@@ -11,16 +11,35 @@ metodi d'istanza che abbiamo visto stamattina e create un file index.php in cui:
         public $originalTitle;
         public $language;
         public $genre;
-        public $year;
-        public $rates;
+        private $year;
 
-        function __construct($title, $language) {
+        function __construct($title,$originalTitle, $language,$genre,$year) {
             $this->title = $title;
+            $this->originalTitle = $originalTitle;
             $this->language = $language;
+            $this->genre = $genre;
+            $this->year = $year;
+        }
+        
+        public function getYear($year) {
+            if (is_integer($year) && $year >= 0) {
+                $this->year = $year;
+            }
+            return $year;
         }
     }
 
-    $armageddon = new Movie('Armageddon', 'english');
+    $armageddon = new Movie('Armageddon - Giudizio finale','Armageddon', 'english', 'action', '1998');
     echo $armageddon->title;
     echo '<br>';
+    echo $armageddon->originalTitle;
+    echo '<br>';
     echo $armageddon->language;
+    echo '<br>';
+    echo $armageddon->genre;
+    echo '<br>';
+    //echo $armageddon->year;
+    echo '<br>';
+    echo $armageddon->getYear('1998');
+    echo '<br>';
+
