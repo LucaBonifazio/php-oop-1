@@ -7,7 +7,7 @@
         //public $year;
         private $year;  
 
-        public function __construct($title,$originalTitle, $language,$genre,$year) {
+        function __construct($title,$originalTitle, $language,$genre,$year) {
             $this->title = $title;
             $this->originalTitle = $originalTitle;
             $this->language = $language;
@@ -15,11 +15,14 @@
             $this->year = $year;
         }
         
-        public function getYear($year) {
+        public function setYear($year) {
             if (is_integer($year) && $year >= 0) {
                 $this->year = $year;
             }
-            return $year;
+        }
+
+        public function getYear() {
+            return $this->year;
         }
     }
 
